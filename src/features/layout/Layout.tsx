@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Kanban from "../kanban/Kanban";
 import Login from "../login/login";
 
@@ -26,11 +26,7 @@ const Laoyout = () => {
                 </nav>
 
             </header>
-            <Routes>
-                <Route index element={<Kanban />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/settings" element={<></>} />
-            </Routes>
+            <Outlet />
         </>
 
     );
