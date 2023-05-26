@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import Laoyout from './features/layout/Layout'
+import Layout from './features/layout/Layout'
 
 function App() {
 
   return (
     <>
 
-      <Laoyout />
+      <Layout />
 
     </>
   )
