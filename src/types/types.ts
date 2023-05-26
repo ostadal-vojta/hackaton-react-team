@@ -16,6 +16,7 @@ export interface ICard {
     title: string;
     created?: string;
     updated?: string;
+    sectionId?: string;
     field: Field
 }
 

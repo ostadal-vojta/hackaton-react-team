@@ -1,12 +1,11 @@
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import Swimlane from "./Swimlane.tsx";
-import {getSections} from "../../services/sections.ts";
-import {useQuery} from "react-query";
+import { getSections } from "../../services/sections.ts";
+import { useQuery } from "react-query";
 
 const Kanban = () => {
     const { data: swimlanes } = useQuery('getSections', getSections);
-    // const { data: cards } = useQuery('getCards', getCards);
 
     return (
         <div className='kanban-board'>
@@ -15,6 +14,8 @@ const Kanban = () => {
                     <Swimlane key={swimlane.id} {...swimlane} />
                 )}
             </DndProvider>
+
+
         </div>
     )
 }

@@ -11,6 +11,7 @@ const Login = () => {
         if (!indentity.current.value || !password.current.value) {
             return;
         }
+        
         login({ identity: indentity.current.value, password: password?.current.value })
     }
 
