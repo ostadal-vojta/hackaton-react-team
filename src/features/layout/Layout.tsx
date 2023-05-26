@@ -1,7 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Kanban from "../kanban/Kanban";
-import Login from "../login/login";
-
 
 const Laoyout = () => {
     return (
@@ -14,7 +11,7 @@ const Laoyout = () => {
                 <nav className="the-nav">
                     <ul>
                         <li>
-                            <a className="the-nav__item" href="index.html">Canban</a>
+                            <a className="the-nav__item" href="/">Canban</a>
                         </li>
                         <li>
                             <a className="the-nav__item the-nav__item--active" href="settings.html">Settings</a>
