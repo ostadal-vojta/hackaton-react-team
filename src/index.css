@@ -1,69 +1,77 @@
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    --primary-color-rgb: 37,99, 235;
+    --secondary-color-rgb: 74,199, 196;
+    --ternary-color-rgb: 130, 74, 234;
+    --text-color-rgb: 30, 58, 138;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    --primary-color: rgb(var(--primary-color-rgb));
+    --secondary-color: rgb(var(--secondary-color-rgb));
+    --ternary-color: rgb(var(--ternary-color-rgb));
+    --text-color: rgb(var(--text-color-rgb));
+    --back-color: rgb(238 242 255);
+    --base-font: 'Inter', sans-serif;
+    --priority-high: rgb(235 36 97);
+    --priority-medium: rgb(235 125 36);
+    --priority-low: rgb(36 157 235);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    /*background: var(--back-color) url("https://keynote.tailwindui.com/_next/static/media/background.6c3571e0.jpg") top -200px left -200px no-repeat;*/
+    background: var(--back-color);
+    background-color: #e5e5f7;
+    background-image: radial-gradient(var(--primary-color) 0.5px, var(--back-color) 0.5px);
+    background-size: 10px 10px;
+    font-family: var(--base-font);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.content {
+    padding: 1.5rem;
+    margin-inline: auto;
+    width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.content--narrow {
+    max-width: 980px;
+}
+
+.login {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+.login__panel {
+    backdrop-filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.login__title {
+    margin: 0 0 2rem;
 }
