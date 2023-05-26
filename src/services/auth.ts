@@ -1,8 +1,11 @@
 import axios from "axios"
 
-const apiInstance = axios.create({
-    baseURL: "http://172.26.70.224:8093/api/"
-})
+export const apiInstance = axios.create({
+    baseURL: "http://172.26.70.224:8093/api/",
+    headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+    }
+});
 
 export const login = async (payload: { identity: string; password: string }) => {
     try {

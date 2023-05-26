@@ -1,10 +1,11 @@
 import {useDrag} from "react-dnd";
+import {ICard} from "../../types/types.ts";
 
-const Card = ({ text }: { text: string }) => {
+const Card = ({ id, title }: ICard) => {
     const [{ opacity }, dragRef] = useDrag(
         () => ({
             type: 'CARD',
-            item: { text },
+            item: { id },
             collect: (monitor) => ({
                 opacity: monitor.isDragging() ? 0.5 : 1
             })
@@ -13,7 +14,7 @@ const Card = ({ text }: { text: string }) => {
     )
     return (
         <article className="kanban-item" ref={dragRef} style={{ opacity }}>
-            <p className="kanban-item__text">{text}</p>
+            <p className="kanban-item__text">{title}</p>
             <div className="kanban-item__footer">
                 <div className="kanban-item__priority kanban-item__priority--medium">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

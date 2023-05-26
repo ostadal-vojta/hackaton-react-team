@@ -1,5 +1,7 @@
 import {useDrop} from "react-dnd";
 import {useState} from "react";
+import {Field, ISwimlane} from "../../types/types.ts";
+import Card from "./Card.tsx";
 
 const handleDrop = (laneId: any) => {
     console.log('dropeed into ' + laneId);
@@ -9,15 +11,15 @@ const handleAddTask = () => {
     console.log('add a thing')
 };
 
-const Swimlane = ({ id, defaultName, children }: { id: number; defaultName: string; children?: any}) => {
-    const [name, setName] = useState(defaultName);
+const Swimlane = ({ id, title, tasks }: ISwimlane) => {
+    const [name, setName] = useState(title);
     const [, drop] = useDrop(
         () => ({
             accept: 'CARD',
             drop: () => handleDrop(id)
         }),
         [id]
-    )
+    );
 
     return <section key={id} className='kanban-column' ref={drop}>
         <header className="kanban-column__header">
@@ -25,7 +27,8 @@ const Swimlane = ({ id, defaultName, children }: { id: number; defaultName: stri
             <input className="kanban-column__title-input" type="text" value={name} onChange={(event) => setName(event.target.value)} />
         </header>
         <div className="kanban-column__content">
-            {children}
+            {/*{tasks.map(card => <Card {...card} />)}*/}
+            {tasks?.map(cardId => <Card key={cardId} id={cardId} title='Lorem Ipsum' created='' field={Field.low} />)}
         </div>
         <footer className="kanban-column__footer">
             <button className="button button--small" data-add-task onClick={handleAddTask}>
