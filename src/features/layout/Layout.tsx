@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const Laoyout = () => {
 
@@ -18,10 +18,10 @@ const Laoyout = () => {
                 <nav className="the-nav">
                     <ul>
                         <li>
-                            <a className="the-nav__item" href="/">Canban</a>
+                            <NavLink className={({ isActive }) => isActive ? "the-nav__item the-nav__item--active" : "the-nav__item"} to="/">Canban</NavLink>
                         </li>
                         <li>
-                            <a className="the-nav__item the-nav__item--active" href="/settings">Settings</a>
+                            <NavLink className={({ isActive }) => isActive ? "the-nav__item the-nav__item--active" : "the-nav__item"} to="/settings">Settings</NavLink>
                         </li>
                         <li>
                             <a className="the-nav__item the-nav__item--logout" href="/login" onClick={handleLogout}>Log Out</a>
