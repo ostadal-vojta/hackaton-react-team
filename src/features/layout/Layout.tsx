@@ -1,9 +1,13 @@
-import { Outlet } from "react-router-dom";
-import Kanban from "../kanban/Kanban";
-import Login from "../login/login";
-
+import { Outlet, useLocation } from "react-router-dom";
 
 const Laoyout = () => {
+
+    const router = useLocation();
+
+    const handleLogout = () => {
+        sessionStorage.clear();
+    }
+
     return (
         <>
             <header className="the-header">
@@ -14,13 +18,13 @@ const Laoyout = () => {
                 <nav className="the-nav">
                     <ul>
                         <li>
-                            <a className="the-nav__item" href="index.html">Canban</a>
+                            <a className="the-nav__item" href="/">Canban</a>
                         </li>
                         <li>
-                            <a className="the-nav__item the-nav__item--active" href="settings.html">Settings</a>
+                            <a className="the-nav__item the-nav__item--active" href="/settings">Settings</a>
                         </li>
                         <li>
-                            <a className="the-nav__item the-nav__item--logout" href="login.html">Log Out</a>
+                            <a className="the-nav__item the-nav__item--logout" href="/login" onClick={handleLogout}>Log Out</a>
                         </li>
                     </ul>
                 </nav>
