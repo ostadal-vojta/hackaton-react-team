@@ -1,8 +1,3 @@
-import './login.css';
-import '../../styles/form.css';
-import '../../styles/input.css';
-import '../../styles/button.css';
-
 const Login = () => {
 
     return (
